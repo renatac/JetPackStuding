@@ -7,4 +7,20 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--    https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=5C6BC0-->
+    <!--    Eu fui no site, escolhi a cor e importei, então depois abri o arquivo e copiei essas linhas abaixo que estavam lá-->
+    <color name="primaryColor">#5c6bc0</color>
+    <color name="primaryLightColor">#8e99f3</color>
+    <color name="primaryDarkColor">#26418f</color>
+    <color name="primaryTextColor">#ffffff</color>
+
+    <color name="secondary_color">#81c784</color>
+    <color name="secondary_ligth_color">#b2fab4</color>
+    <color name="secondary_dark_color">#519657</color>
+
+    <color name="primary_color">#388e3c</color>
+    <color name="primary_light_color">#6abf69</color>
+    <color name="primary_dark_color">#00600f</color>
+
 </resources>
