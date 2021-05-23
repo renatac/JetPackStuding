@@ -54,6 +54,9 @@ dependencies {
     //SDP - a scalable size unit
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
 
+    //karumi/dexter - Dexter is an Android library that simplifies the process of requesting permissions at runtime.
+    implementation 'com.karumi:dexter:6.2.2'
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
