@@ -18,6 +18,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.provider.MediaStore
 import android.provider.Settings
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -87,6 +88,7 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
                     showRationalDialogForPermissions()
                 }
             }).onSameThread().check()
+            dialog.dismiss()
             //If you want to receive permission listener callbacks on the same thread that fired the permission request, you just need to call
             // onSameThread before checking for permissions
         }
@@ -96,10 +98,8 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
                 Manifest.permission.READ_EXTERNAL_STORAGE,
             ).withListener(object : PermissionListener {
                 override fun onPermissionGranted(p0: PermissionGrantedResponse?) {
-                    Toast.makeText(
-                        this@AddUpdateDishActivity,
-                        "You have Gallery permission now", Toast.LENGTH_LONG
-                    ).show()
+                   val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                   startActivityForResult(galleryIntent, GALLERY)
                 }
 
                 override fun onPermissionDenied(p0: PermissionDeniedResponse?) {
@@ -118,6 +118,7 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
             }).onSameThread().check()
             //If you want to receive permission listener callbacks on the same thread that fired the permission request, you just need to call
             // onSameThread before checking for permissions
+            dialog.dismiss()
         }
         dialog.show()
     }
@@ -127,12 +128,22 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
         if(resultCode == Activity.RESULT_OK) {
             if(requestCode == CAMERA) {
                 data?.let {
-                    //The image taken is defined in the ImageView
+                    //The image taken through is defined in the ImageView
                     val thumbnails: Bitmap = data.extras!!.get("data") as Bitmap
                     mBinding.ivDishImage.setImageBitmap(thumbnails)
                     mBinding.ivAddDishImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_vector_edit))
                 }
             }
+            if(requestCode == GALLERY) {
+                data?.let {
+                    //The image selected of the Gallery is defined in the ImageView
+                    val selectedPhotoUri = data.data
+                    mBinding.ivDishImage.setImageURI(selectedPhotoUri)
+                    mBinding.ivAddDishImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_vector_edit))
+                }
+            }
+        } else if(resultCode == Activity.RESULT_CANCELED) {
+            Log.e("cancelled","User cancelled image selection")
         }
     }
 
@@ -161,6 +172,7 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         private const val CAMERA = 1
+        private const val GALLERY = 2
     }
 
 }
