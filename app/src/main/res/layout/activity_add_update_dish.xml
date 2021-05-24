@@ -132,8 +132,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
                 android:textColor="@color/gray_900"
                 android:textSize="@dimen/_15sdp"
                 android:autofillHints="@string/lbl_title" />
@@ -153,20 +151,84 @@
              app:hintTextColor="@color/blue_gray_700"
              app:layout_constraintStart_toStartOf="parent"
              app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintTop_toBottomOf="@+id/til_category">
+             app:layout_constraintTop_toBottomOf="@+id/til_category"
+             app:layout_constraintBottom_toTopOf="@id/til_cooking_time">
 
             <EditText
                 android:id="@+id/id_ingredients"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_200sdp"
                 android:inputType="text"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
                 android:textColor="@color/gray_900"
                 android:textSize="@dimen/_15sdp"
                 android:autofillHints="@string/lbl_title" />
 
          </com.google.android.material.textfield.TextInputLayout>
+
+         <com.google.android.material.textfield.TextInputLayout
+             android:id="@+id/til_cooking_time"
+             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="@dimen/_16sdp"
+             android:layout_marginTop="@dimen/_16sdp"
+             android:layout_marginEnd="@dimen/_16sdp"
+             android:hint="@string/lbl_cooking_time_in_minutes"
+             android:gravity="start"
+             app:hintTextColor="@color/blue_gray_700"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/til_ingredients">
+
+            <EditText
+                android:id="@+id/id_cooking_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/gray_900"
+                android:textSize="@dimen/_15sdp"
+                android:autofillHints="@string/lbl_title" />
+
+         </com.google.android.material.textfield.TextInputLayout>
+
+         <com.google.android.material.textfield.TextInputLayout
+             android:id="@+id/til_direction_to_cook"
+             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="@dimen/_16sdp"
+             android:layout_marginTop="@dimen/_16sdp"
+             android:layout_marginEnd="@dimen/_16sdp"
+             android:hint="@string/lbl_direction_to_cook"
+             android:gravity="start"
+             app:hintTextColor="@color/blue_gray_700"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/til_cooking_time">
+
+            <EditText
+                android:id="@+id/id_direction_to_cook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/gray_900"
+                android:textSize="@dimen/_15sdp"
+                android:autofillHints="@string/lbl_title" />
+
+         </com.google.android.material.textfield.TextInputLayout>
+
+         <Button
+             android:id="@+id/button"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/lbl_add_dish"
+             android:textColor="@color/white"
+             android:background="@color/primary_color"
+             android:layout_margin="@dimen/_16sdp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/til_direction_to_cook"
+             app:layout_constraintBottom_toBottomOf="parent"/>
 
       </androidx.constraintlayout.widget.ConstraintLayout>
    </ScrollView>
