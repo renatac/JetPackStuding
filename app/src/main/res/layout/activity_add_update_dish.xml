@@ -101,7 +101,7 @@
              app:layout_constraintTop_toBottomOf="@+id/til_tile">
 
             <EditText
-                android:id="@+id/id_type"
+                android:id="@+id/et_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -128,12 +128,14 @@
              app:layout_constraintTop_toBottomOf="@+id/til_type">
 
             <EditText
-                android:id="@+id/id_categorie"
+                android:id="@+id/et_categorie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:textColor="@color/gray_900"
                 android:textSize="@dimen/_15sdp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:autofillHints="@string/lbl_title" />
 
          </com.google.android.material.textfield.TextInputLayout>
@@ -181,12 +183,14 @@
              app:layout_constraintTop_toBottomOf="@+id/til_ingredients">
 
             <EditText
-                android:id="@+id/id_cooking_time"
+                android:id="@+id/et_cooking_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:textColor="@color/gray_900"
                 android:textSize="@dimen/_15sdp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:autofillHints="@string/lbl_title" />
 
          </com.google.android.material.textfield.TextInputLayout>
