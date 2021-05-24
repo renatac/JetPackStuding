@@ -59,21 +59,6 @@
                 app:srcCompat="@drawable/ic_add_a_photo"
                 android:contentDescription="@string/image_contentDescription" />
 
-            <ImageView
-                android:id="@+id/iv_another_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:padding="@dimen/_20sdp"
-                app:srcCompat="@drawable/ic_add_a_photo"
-                android:contentDescription="@string/image_contentDescription" />
-
-            <Button
-                android:id="@+id/btn_my_button"
-                android:visibility="visible"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
          </FrameLayout>
 
          <com.google.android.material.textfield.TextInputLayout
