@@ -20,6 +20,7 @@ import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -130,15 +131,24 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
                 data?.let {
                     //The image taken through is defined in the ImageView
                     val thumbnails: Bitmap = data.extras!!.get("data") as Bitmap
-                    mBinding.ivDishImage.setImageBitmap(thumbnails)
+                    //mBinding.ivDishImage.setImageBitmap(thumbnails)
+                    Glide.with(this)
+                        .load(thumbnails)
+                        .centerCrop()
+                        .into(mBinding.ivDishImage)
                     mBinding.ivAddDishImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_vector_edit))
+
                 }
             }
             if(requestCode == GALLERY) {
                 data?.let {
                     //The image selected of the Gallery is defined in the ImageView
                     val selectedPhotoUri = data.data
-                    mBinding.ivDishImage.setImageURI(selectedPhotoUri)
+                    //mBinding.ivDishImage.setImageURI(selectedPhotoUri)
+                    Glide.with(this)
+                        .load(selectedPhotoUri)
+                        .centerCrop()
+                        .into(mBinding.ivDishImage)
                     mBinding.ivAddDishImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_vector_edit))
                 }
             }
