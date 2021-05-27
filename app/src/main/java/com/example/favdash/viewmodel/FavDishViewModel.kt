@@ -1,20 +1,20 @@
 package com.example.favdash.viewmodel
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.favdash.model.database.FavDishRepository
 import com.example.favdash.model.entities.FavDish
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
+//ViewModel is part of lifecycle library
 class FavDishViewModel(private val repository: FavDishRepository): ViewModel() {
 
-    //ViewModels survive a configuration changes, mantain a data...
+    //ViewModels survive a configuration changes, recreate activity, mantain a data...
     fun insertDish(favDish: FavDish) = viewModelScope.launch {
         repository.insertFavDishData(favDish)
     }
 
+    val allDishesList: LiveData<List<FavDish>> = repository.allDishesList.asLiveData()
 }
 
 class FavDishViewModelFactory(private val repository: FavDishRepository) : ViewModelProvider.Factory {

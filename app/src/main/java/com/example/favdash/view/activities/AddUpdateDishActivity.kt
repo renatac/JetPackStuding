@@ -178,8 +178,9 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
                             ).show()
                         }
                         else -> {
-                            //All the entries are valid
-                            val favDishDetails: FavDish = FavDish(
+                            //when the button is being clicked
+                            // All the entries are valid
+                            val favDishDetails = FavDish(
                                 mImagePath,
                                 Constants.DISH_IMAGE_SOURCE_LOCAL,
                                 title,

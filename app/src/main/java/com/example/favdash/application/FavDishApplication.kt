@@ -6,10 +6,12 @@ import com.example.favdash.model.database.FavDishRoomDatabase
 
 class FavDishApplication: Application() {
 
+    //First create a database
     private val database by lazy {
         FavDishRoomDatabase.getDatabase(this@FavDishApplication)
     }
 
+    //After create a repository
     val repository by lazy {
         FavDishRepository(database.favDishDao())
     }
